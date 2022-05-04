@@ -3,7 +3,9 @@
 create something as ghcr.io to set permissions
 
 ```
-export GITHUB_REPOSITORY=matti/ghcr-dummy
-docker-compose build
-docker-compose push
+ghcr-dummy matti/ghcr-dummy
 ```
+
+then open https://github.com/matti/ghcr-dummy/pkgs/container/ghcr-dummy and set permissions
+
+(replace with your own registry)

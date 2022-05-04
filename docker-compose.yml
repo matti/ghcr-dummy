@@ -1,9 +1,0 @@
-version: '3'
-
-services:
-  ghcr-dummy:
-    build:
-      context: .
-      args:
-        - GITHUB_REPOSITORY=${GITHUB_REPOSITORY}
-    image: ghcr.io/${GITHUB_REPOSITORY}:latest

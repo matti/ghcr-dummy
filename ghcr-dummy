@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+docker build --build-arg "GITHUB_REPOSITORY=$1" -t "ghcr.io/$1:latest" .
+docker push "ghcr.io/$1:latest"
