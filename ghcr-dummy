@@ -3,3 +3,6 @@ set -euo pipefail
 
 docker build --build-arg "GITHUB_REPOSITORY=$1" -t "ghcr.io/$1:latest" .
 docker push "ghcr.io/$1:latest"
+
+echo ""
+echo "now open https://github.com/$1/pkgs/container/${1##*/} and give write permissions"
