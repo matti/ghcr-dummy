@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-docker build --build-arg "GITHUB_REPOSITORY=$1" -t "ghcr.io/$1:latest" .
-docker push "ghcr.io/$1:latest"
+repo=$1
+container=${2:-$1}
+containerWithoutSlashes=${container##*/}
+
+docker build --build-arg "GITHUB_REPOSITORY=$repo" -t "ghcr.io/$repo/$containerWithoutSlashes:latest" .
+docker push "ghcr.io/$repo/$containerWithoutSlashes:latest"
 
 echo ""
-echo "now open https://github.com/$1/pkgs/container/${1##*/} and give write permissions"
+echo "now open https://github.com/$repo/pkgs/container/$containerWithoutSlashes/} and give write permissions"
